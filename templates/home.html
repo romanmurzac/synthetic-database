@@ -1,0 +1,66 @@
+{% extends "main.html" %}
+
+{% block title  %}
+Home
+{% endblock %}
+
+{% block content %}
+
+<!--First container with main image-->
+<div class="container-fluid mb-5" style="margin-top: 100px;">
+    <img src="static/images/home_1.jpg" style="width:100%;">
+</div>
+
+<!--Second container with the products-->
+<div class="container-fluid mb-5">
+    <div class="row justify-content-center">
+        <div class="col-sm-4 mt-3">
+            <div class="card" style="width: 100%;">
+                <img alt="..." class="card-img-top" src="static/images/home_2.gif">
+                <div class="card-body">
+                    <h5 class="card-title">Default Data Generator</h5>
+                    <p class="card-text">Default Data Generator allow to generate desired volume of data by choosing
+                        from standard field types. For each selected field there can be specified custom name.</p>
+                    <div class="text-center">
+                        <a class="btn btn-primary" href="/default-generator">Default Data Generator</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 mt-3">
+            <div class="card" style="width: 100%;">
+                <img alt="..." class="card-img-top" src="static/images/home_3.gif">
+                <div class="card-body">
+                    <h5 class="card-title">Custom Data Generator</h5>
+                    <p class="card-text">Custom Data Generator allow to generate desired volume of data by uploading
+                        custom schema of standard fields. For each provided field there can be specified custom name.</p>
+                    <div class="text-center">
+                        <a class="btn btn-primary" href="/custom-generator">Custom Data Generator</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Third container with description-->
+<div class="container-fluid mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="static/images/home_4.jpg" style="width:100%;">
+        </div>
+        <div class="col-md-6">
+            <h4 style="padding-top: 50px;">Synthetic data is artificial data that is created by using Faker library
+                that mirror the real properties of the original data but does not reveal any information regarding
+                real people.</h4>
+            <h4 style="padding-top: 50px;">Synthetic Data Generator is an application that allows anyone to generate
+                data that inherits the properties of real data, but does not represent data of real people. This allows
+                the generated data to be used for testing any system that uses user data. Also, the data can be used to
+                demonstrate some functionalities that use sensitive data.</h4>
+            <h4 style="padding-top: 50px;">Depending on your needs and level of experience, the application offers three
+                ways of generating data, each of them having different input data, but the same output data.</h4>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

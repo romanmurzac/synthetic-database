@@ -1,0 +1,320 @@
+{% extends "main.html" %}
+
+{% block title  %}
+Documentation
+{% endblock %}
+
+{% block content %}
+
+<!--Main container-->
+<div class="container-fluid" style="margin-top: 25px">
+    <h1 class="text-center text-primary">Synthetic Data Generator</h1>
+    <br>
+    <p style="margin-left: 15%; margin-right: 15%;">
+        Synthetic Data Generator is tool that allow to generate non-existing data for specific fields available on
+        schema. The end user can upload own schema, use default one or define it directly in application. Below are
+        presented the ways of using the application.
+    </p>
+    <p style="margin-left: 15%; margin-right: 15%;"><strong>Note:</strong> Data Generator allow to generate unlimited
+        volume of data, but limited type of data. Check below for available types of data.</p>
+</div>
+
+<!--First product container-->
+<div class="container" style="margin-top: 25px">
+    <h3 class="text-center"><strong>Default</strong> Synthetic Data Generator</h3>
+    <p>
+        Default Synthetic Data Generator has 4 option for initial data input and 5 buttons (6 buttons after add more
+        fields).</p>
+    <div class="row">
+        <div class="col-md-8">
+            <p><strong>Input fields:</strong></p>
+            <ul>
+                <li>
+                    <em>Field type</em> - choose type of data for current column;
+                </li>
+                <li>
+                    <em>Custom name</em> - specify custom name for current column, otherwise default value will be used;
+                </li>
+                <li>
+                    <em>Number of rows</em> - specify number of rows to be generated;
+                </li>
+                <li>
+                    <em>File name</em> - specify the name of the database that will be generated;
+                </li>
+            </ul>
+            <p><strong>Buttons:</strong></p>
+            <ul>
+                <li>
+                    <em>Add</em> - add more columns in schema;
+                </li>
+                <li>
+                    <em>Remove</em> - remove column from schema (appears after more columns were added);
+                </li>
+                <li>
+                    <em>Preview</em> - generate temporary file and make preview of the result;
+                </li>
+                <li>
+                    <em>Download</em> - save to local disk generated database;
+                </li>
+
+                <li>
+                    <em>Cloud ↑</em> - upload to cloud storage generated database;
+                </li>
+                <li>
+                    <em>Cloud ↓</em> - download from cloud storage saved database;
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-4 text-center">
+            <img class="img-fluid" src="{{ url_for('static', filename='/images/documentation_1.png') }}">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <p class="mt-5"><strong>Available data types:</strong></p>
+            <ul>
+                <li>
+                    <em>first_name</em> - generate first name - Vasile;
+                </li>
+                <li>
+                    <em>last_name</em> - generate last name - Popescu;
+                </li>
+                <li>
+                    <em>personal_number</em> - generate social personal number - 8240804276204;
+                </li>
+                <li>
+                    <em>birthdate</em> - generate date - 2023-04-19;
+                <li>
+                    <em>address</em> - generate address with postcode - Intrarea Nr. 167 Nicolau Mare, 197205;
+                </li>
+                <li>
+                    <em>county</em> - generate county name - Hunedoara;
+                </li>
+                <li>
+                    <em>phone_number</em> - generate phone number - 0248 455 730;
+                </li>
+                <li>
+                    <em>mac_address</em> - generate mac address - d4:a3:82:98:85:a6;
+                </li>
+                <li>
+                    <em>ip_address</em> - generate IP address - 172.25.185.30;
+                </li>
+                <li>
+                    <em>job</em> - generate job title - Pictor;
+                </li>
+                <li>
+                    <em>iban</em> - generate bank account number - RO83YUNU3862659030037214;
+                <li>
+                    <em>currency</em> - generate currency code - XAF;
+                </li>
+                <li>
+                    <em>balance</em> - generate random number - 75564642;
+                </li>
+                <li>
+                    <em>latitude</em> - generate latitude value - 27.6863225;
+                </li>
+                <li>
+                    <em>longitude</em> - generate longitude value - 44.431989;
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-4 mt-5 text-center">
+            <img class="img-fluid" src="{{ url_for('static', filename='/images/documentation_2.png') }}">
+        </div>
+    </div>
+
+    <p class="mt-5"><strong>Mode of work:</strong></p>
+    <ul>
+        <li>
+            <em>Choose data type</em> - choose data type for first column;
+        </li>
+        <li>
+            <em>Add more column</em> - press + button for number of desired columns;
+        </li>
+        <li>
+            <em>Provide custom name</em> - provide custom name for chosen column;
+        </li>
+        <li>
+            <em>Remove column</em> - remove specific column;
+        <li>
+            <em>Provide number of rows</em> - provide integer value for the number of rows to be generated;
+        </li>
+        <li>
+            <em>Provide file name</em> - provide the name of the database;
+        </li>
+        <li>
+            <em>Preview</em> - press Preview button, the result will appear in Preview section;
+        </li>
+        <li>
+            <em>Download</em> - press Download and download generated database on local disk;
+        </li>
+        <li>
+            <em>Cloud ↑</em> - press Cloud ↑ and upload generated database in Cloud. The database will be stored in
+            Cloud for 30 days;
+        </li>
+        <li>
+            <em>Cloud ↓</em> - provide file name and press Cloud ↓ and download database from Cloud;
+        </li>
+        <li>
+            <em>Repeat</em> - repeat the process if necessary;
+        </li>
+    </ul>
+
+    <p class="mt-5"><strong>Stages:</strong></p>
+    <p>Initial</p>
+    <div class="mt-2 text-center">
+        <img class="img-fluid" src="{{ url_for('static', filename='/images/documentation_3.png') }}">
+    </div>
+    <p class="mt-5">Intermediate</p>
+    <div class="mt-2 text-center">
+        <img class="img-fluid" src="{{ url_for('static', filename='/images/documentation_4.png') }}">
+    </div>
+    <p class="mt-5">Final</p>
+    <div class="mt-2 text-center">
+        <img class="img-fluid" src="{{ url_for('static', filename='/images/documentation_5.png') }}">
+    </div>
+</div>
+
+<!--Second product container-->
+<div class="container" style="margin-top: 50px">
+    <h3 class="text-center"><strong>Custom</strong> Synthetic Data Generator</h3>
+    <p>
+        Custom Synthetic Data Generator has 3 option for initial data input and 5 buttons.</p>
+    <div class="row">
+        <div class="col-md-8">
+            <p><strong>Input fields:</strong></p>
+            <ul>
+                <li>
+                    <em>Upload schema</em> - upload file that contains schema;
+                </li>
+                <li>
+                    <em>Number of rows</em> - specify number of rows to be generated;
+                </li>
+                <li>
+                    <em>File name</em> - specify the name of the database that will be generated;
+                </li>
+            </ul>
+            <p><strong>Buttons:</strong></p>
+            <ul>
+                <li>
+                    <em>Upload</em> - upload in temporary location custom schema;
+                </li>
+                <li>
+                    <em>Preview</em> - generate temporary file and make preview of the result;
+                </li>
+                <li>
+                    <em>Download</em> - save to local disk generated database;
+                </li>
+                <li>
+                    <em>Cloud ↑</em> - save in cloud generated database;
+                </li>
+                <li>
+                    <em>Cloud ↓</em> - download from cloud saved database;
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-4 text-center">
+            <img class="img-fluid" src="{{ url_for('static', filename='/images/documentation_6.png') }}">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <p class="mt-5"><strong>Schema content:</strong></p>
+            <ul>
+                <li>
+                    <em>first_name</em> - generate first name - Vasile;
+                </li>
+                <li>
+                    <em>last_name</em> - generate last name - Popescu;
+                </li>
+                <li>
+                    <em>personal_number</em> - generate social personal number - 8240804276204;
+                </li>
+                <li>
+                    <em>birthdate</em> - generate date - 2023-04-19;
+                <li>
+                    <em>address</em> - generate address with postcode - Intrarea Nr. 167 Nicolau Mare, 197205;
+                </li>
+                <li>
+                    <em>county</em> - generate county name - Hunedoara;
+                </li>
+                <li>
+                    <em>phone_number</em> - generate phone number - 0248 455 730;
+                </li>
+                <li>
+                    <em>mac_address</em> - generate mac address - d4:a3:82:98:85:a6;
+                </li>
+                <li>
+                    <em>ip_address</em> - generate IP address - 172.25.185.30;
+                </li>
+                <li>
+                    <em>job</em> - generate job title - Pictor;
+                </li>
+                <li>
+                    <em>iban</em> - generate bank account number - RO83YUNU3862659030037214;
+                <li>
+                    <em>currency</em> - generate currency code - XAF;
+                </li>
+                <li>
+                    <em>balance</em> - generate random number - 75564642;
+                </li>
+                <li>
+                    <em>latitude</em> - generate latitude value - 27.6863225;
+                </li>
+                <li>
+                    <em>longitude</em> - generate longitude value - 44.431989;
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-6 mt-5 text-center">
+            <img class="img-fluid" src="{{ url_for('static', filename='/images/documentation_7.png') }}">
+        </div>
+    </div>
+
+    <p class="mt-5"><strong>Mode of work:</strong></p>
+    <ul>
+        <li>
+            <em>Upload file</em> - upload file that contains schema;
+        </li>
+        <li>
+            <em>Provide number of rows</em> - provide integer value for the number of rows to be generated;
+        </li>
+        <li>
+            <em>Provide file name</em> - provide the name of the database;
+        </li>
+        <li>
+            <em>Preview</em> - press Preview button, the result will appear in Preview section;
+        </li>
+        <li>
+            <em>Download</em> - press Download and save generated database on local disk;
+        </li>
+        <li>
+            <em>Cloud ↑</em> - press Cloud ↑ and upload generated database in Cloud. The database will be stored in
+            Cloud for 30 days;
+        </li>
+        <li>
+            <em>Cloud ↓</em> - press Cloud ↓ and download saved database from Cloud;
+        </li>
+        <li>
+            <em>Repeat</em> - repeat the process if necessary;
+        </li>
+    </ul>
+
+    <p class="mt-5"><strong>Stages:</strong></p>
+    <p>Initial</p>
+    <div class="text-center mt-2">
+        <img class="img-fluid" src="{{ url_for('static', filename='/images/documentation_8.png') }}">
+    </div>
+    <p class="mt-5">Intermediate</p>
+    <div class="text-center mt-2">
+        <img class="img-fluid" src="{{ url_for('static', filename='/images/documentation_9.png') }}">
+    </div>
+    <p class="mt-5">Final</p>
+    <div class="text-center mt-2">
+        <img class="img-fluid" src="{{ url_for('static', filename='/images/documentation_10.png') }}">
+    </div>
+</div>
+
+{% endblock %}

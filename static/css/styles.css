@@ -1,0 +1,16 @@
+/* Style preview scroll bar */
+.my-custom-scrollbar {
+    position: relative;
+    height: 410px;
+    overflow: auto;
+}
+
+.table-wrapper-scroll-y {
+    display: block;
+}
+
+/* Home page fonts */
+#home-font-one {
+    font-family: 'Allan', cursive;
+}
+

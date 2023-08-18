@@ -1,0 +1,125 @@
+{% extends "main.html" %}
+
+{% block title  %}
+Default Data Generator
+{% endblock %}
+
+{% block content %}
+
+<!--Main text section-->
+<h2 class="text-primary text-center mt-3"><strong>Default</strong> Synthetic Data Generator</h2>
+
+<!--Form section-->
+<form action="{{ url_for('generator_default') }}" method="POST">
+    <div class="form-group">
+        <div class="input-group">
+            <div class="container">
+
+                <!--Row with options-->
+                <div class="row mt-5">
+
+                    <!--Column with default fields list-->
+                    <div class="col-sm-2">
+                        <span class="text-primary input-group-addon">Field type</span>
+                        <select class="form-select selectpicker form-control" name="field[]">
+                            {% for column in columns %}
+                            <option value="{{column.field}}">{{column.field}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <!--Column with custom name for the field-->
+                    <div class="col-sm-4">
+                        <span class="text-primary input-group-addon">Field custom name</span>
+                        <input autocomplete="false" class="form-control m-input" name="field[]"
+                               placeholder="Enter field custom name" type="text"/>
+                    </div>
+
+                    <!--Column with no of rows-->
+                    <div class="col-sm-2">
+                        <span class="text-primary input-group-addon">No of rows</span>
+                        <input autocomplete="off" class="form-control" name="rows_select" placeholder="Enter no of rows"/>
+                    </div>
+
+                    <!--Column with name of the file-->
+                    <div class="col-sm-4">
+                        <span class="text-primary input-group-addon">File name</span>
+                        <input autocomplete="off" class="form-control" name="name_select" placeholder="Enter file name"/>
+                    </div>
+                </div>
+
+                <!--Row with action buttons-->
+                <div class="row mt-3">
+
+                    <!--Column with additional enter-->
+                    <div class="col-8">
+                        <div id="newRow"></div>
+                    </div>
+
+                    <!--Column with Preview button-->
+                    <div class="col-1">
+                        <button class="btn btn-success" type="submit">Preview</button>
+                    </div>
+
+                    <!--Column with Save local button-->
+                    <div class="col-1">
+                        <button class="btn btn-secondary" formaction="{{ url_for('download_file') }}"
+                                id="button2" type="submit">Download
+                        </button>
+                    </div>
+
+                    <!--Column with Upload cloud button-->
+                    <div class="col-1">
+                        <button class="btn btn-primary" formaction="{{ url_for('upload_cloud') }}"
+                                id="button3" type="submit">Cloud &uarr;
+                        </button>
+                    </div>
+
+                    <!--Column with Download cloud button-->
+                    <div class="col-1">
+                        <button class="btn btn-warning" formaction="{{ url_for('download_cloud') }}"
+                                id="button4" type="submit">Cloud &darr;
+                        </button>
+                    </div>
+                </div>
+
+                <!--Row to add new entries-->
+                <div class="row mt-3">
+                    <div id="newRow"></div>
+                </div>
+
+                <!--Button to add new entries-->
+                <button class="btn btn-info" id="addRow" type="button">&#43;</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!--Preview section-->
+<div>
+    <div>
+        <h3 class="text-primary text-center mt-5">Preview</h3>
+    </div>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        {% if header %}
+        <table class="table table-bordered table-hover">
+            <tr>
+                {% for col in header %}
+                <th scope="col">{{ col }}</th>
+                {% endfor %}
+            </tr>
+            {% for row in reader %}
+            <tr>
+                {% for col in row %}
+                <td>{{ col }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <h4 class="text-primary text-center mt-3">No data to display</h4>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

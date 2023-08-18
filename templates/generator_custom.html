@@ -1,0 +1,104 @@
+{% extends "main.html" %}
+
+{% block title  %}
+Custom Data Generator
+{% endblock %}
+
+{% block content %}
+
+<!--Navbar section-->
+<h2 class="text-primary text-center mt-3"><strong>Custom</strong> Synthetic Data Generator</h2>
+
+<!--Container section for all settings options-->
+<div class="container">
+    <div class="row mt-5">
+
+        <!--Column with Upload schema-->
+        <div class="col-md-2">
+            <form action="/" enctype="multipart/form-data" method="POST">
+                <span class="text-primary input-group-addon">Custom schema</span>
+                <input name="upload_file" type="file">
+                <button class="btn btn-danger mt-5" formaction="{{ url_for('upload_schema') }}" type="submit">
+                    Upload
+                </button>
+            </form>
+        </div>
+
+        <!--Column with space-->
+        <div class="col-md-2"></div>
+
+        <!--Column with the file options-->
+        <div class="col-md-8">
+            <!--Settings Form section-->
+            <form action="{{ url_for('generator_custom') }}" class="form-inline" method="POST">
+
+                <!--Rows form field-->
+                <div class="col-md-4">
+                    <span class="text-primary input-group-addon">No of rows</span>
+                    <input autocomplete="off" class="form-control" name="rows_select" placeholder="Enter no of rows"/>
+                </div>
+
+                <!--File name form field-->
+                <div class="col-md-4">
+                    <span class="text-primary input-group-addon">File name</span>
+                    <input autocomplete="off" class="form-control" name="name_select" placeholder="Enter file name"/>
+                </div>
+
+                <div class="row">
+                    <!--Action buttons-->
+
+                    <div class="col-md-3">
+                        <button class="btn btn-success me-5 mt-5" id="button1" type="submit">Preview</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn btn-secondary me-5 mt-5" formaction="{{ url_for('download_file') }}"
+                                id="button2" type="submit">Download
+                        </button>
+                    </div>
+                    <!--Column with Upload cloud button-->
+                    <div class="col-md-3">
+                        <button class="btn btn-primary me-5 mt-5" formaction="{{ url_for('upload_cloud') }}"
+                                id="button3" type="submit">Cloud &uarr;
+                        </button>
+                    </div>
+
+                    <!--Column with Download cloud button-->
+                    <div class="col-md-3">
+                        <button class="btn btn-warning me-5 mt-5" formaction="{{ url_for('download_cloud') }}"
+                                id="button4" type="submit">Cloud &darr;
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--Preview section-->
+<div>
+    <div>
+        <h3 class="text-primary text-center mt-5">Preview</h3>
+    </div>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        {% if header %}
+        <table class="table table-bordered table-hover">
+            <tr>
+                {% for col in header %}
+                <th scope="col">{{ col }}</th>
+                {% endfor %}
+            </tr>
+            {% for row in reader %}
+            <tr>
+                {% for col in row %}
+                <td>{{ col }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <h4 class="text-primary text-center mt-3">No data to display</h4>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
